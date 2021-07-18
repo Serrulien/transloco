@@ -43,40 +43,40 @@ export function initTranslocoService(
   exports: [TranslocoModule]
 })
 export class TranslocoTestingModule {
-  static forRoot(options: TranslocoTestingOptions) {
+  static forRoot(options: TranslocoTestingOptions): ModuleWithProviders<TranslocoTestingModule> {
     return {
-      ngModule: TranslocoTestingModule,
-      providers: [
-        {
-          provide: TRANSLOCO_TEST_LANGS,
-          useValue: options.langs
-        },
-        {
-          provide: TRANSLOCO_TEST_OPTIONS,
-          useValue: options
-        },
-        {
-          provide: APP_INITIALIZER,
-          useFactory: initTranslocoService,
-          deps: [TranslocoService, TRANSLOCO_TEST_LANGS, TRANSLOCO_TEST_OPTIONS],
-          multi: true
-        },
-        {
-          provide: TRANSLOCO_LOADER,
-          useClass: TestingLoader
-        },
-        defaultProviders,
-        {
-          provide: TRANSLOCO_CONFIG,
-          useValue: translocoConfig({
-            prodMode: true,
-            missingHandler: { logMissingKey: false },
-            ...options.translocoConfig
-          })
-        }
-      ]
+        ngModule: TranslocoTestingModule,
+        providers: [
+            {
+                provide: TRANSLOCO_TEST_LANGS,
+                useValue: options.langs
+            },
+            {
+                provide: TRANSLOCO_TEST_OPTIONS,
+                useValue: options
+            },
+            {
+                provide: APP_INITIALIZER,
+                useFactory: initTranslocoService,
+                deps: [TranslocoService, TRANSLOCO_TEST_LANGS, TRANSLOCO_TEST_OPTIONS],
+                multi: true
+            },
+            {
+                provide: TRANSLOCO_LOADER,
+                useClass: TestingLoader
+            },
+            defaultProviders,
+            {
+                provide: TRANSLOCO_CONFIG,
+                useValue: translocoConfig({
+                    prodMode: true,
+                    missingHandler: { logMissingKey: false },
+                    ...options.translocoConfig
+                })
+            }
+        ]
     };
-  }
+}
 
   /** @deprecated - use forRoot instead */
   static withLangs(
