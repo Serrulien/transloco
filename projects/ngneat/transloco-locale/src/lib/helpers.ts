@@ -23,7 +23,7 @@ export function localizeNumber(value: number | string, locale: Locale, options: 
 
 export function localizeDate(date: Date, locale: Locale, options: DateFormatOptions): string {
   if (isDate(date)) {
-    return new Intl.DateTimeFormat(locale, options).format(date);
+    return new Intl.DateTimeFormat(locale, options as any).format(date);
   }
   return '';
 }

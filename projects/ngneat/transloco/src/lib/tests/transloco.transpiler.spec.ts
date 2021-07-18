@@ -28,6 +28,7 @@ describe('TranslocoTranspiler', () => {
       expect(spy).toHaveBeenCalledWith('lowercase');
       spy.calls.reset();
       parser.transpile('[[ upperCase(lowercase, another one, many more) ]]', {}, {});
+      // @ts-ignore
       expect(spy).toHaveBeenCalledWith('lowercase', 'another one', 'many more');
     });
 

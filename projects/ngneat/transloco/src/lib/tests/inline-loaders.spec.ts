@@ -46,7 +46,7 @@ describe('Inline loaders: directive', () => {
       { detectChanges: false }
     );
 
-    const service = spectator.get(TranslocoService);
+    const service = spectator.inject(TranslocoService);
     setlistenToLangChange(service);
     spectator.detectChanges();
     updateView(spectator, service);
@@ -73,7 +73,7 @@ describe('Inline loaders: pipe', () => {
   it('should support inline loaders', fakeAsync(() => {
     spectator = createComponent({ detectChanges: false });
 
-    const service = spectator.get(TranslocoService);
+    const service = spectator.inject(TranslocoService);
     spectator.detectChanges();
 
     updateView(spectator, service);

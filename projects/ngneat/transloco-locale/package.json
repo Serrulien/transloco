@@ -18,6 +18,9 @@
     "type": "git",
     "url": "https://github.com/ngneat/transloco"
   },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "keywords": [
     "angular",
     "angular 2",

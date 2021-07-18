@@ -59,7 +59,7 @@ describe('Pipe', () => {
         detectChanges: false,
         providers: [listenToLangChangesProvider]
       });
-      const service = spectator.get(TranslocoService);
+      const service = spectator.inject(TranslocoService);
       spectator.detectChanges();
       runLoader();
       spectator.detectChanges();
@@ -98,7 +98,7 @@ describe('Pipe', () => {
       expect(spectator.query('h1')).toHaveText('Title spanish');
       expect(spectator.query('span')).toHaveText('alert netanel spanish');
       // not static should changed
-      spectator.get(TranslocoService).setActiveLang('en');
+      spectator.inject(TranslocoService).setActiveLang('en');
       runLoader();
       spectator.detectChanges();
       expect(spectator.query('p')).toHaveText('home english');
@@ -130,7 +130,7 @@ describe('Pipe', () => {
       expect(spectator.query('h1')).toHaveText('Title spanish');
       expect(spectator.query('span')).toHaveText('alert netanel spanish');
       // static should NOT changed
-      spectator.get(TranslocoService).setActiveLang('en');
+      spectator.inject(TranslocoService).setActiveLang('en');
       runLoader();
       spectator.detectChanges();
       expect(spectator.query('p')).toHaveText('home spanish');
@@ -171,7 +171,7 @@ describe('Pipe', () => {
       expect(spectator.query('h1')).toHaveText('Title english');
       expect(spectator.query('span')).toHaveText('alert netanel english');
       // not static should changed
-      spectator.get(TranslocoService).setActiveLang('es');
+      spectator.inject(TranslocoService).setActiveLang('es');
       runLoader();
       spectator.detectChanges();
       expect(spectator.query('p')).toHaveText('Admin Lazy spanish');

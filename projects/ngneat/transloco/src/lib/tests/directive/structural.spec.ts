@@ -38,7 +38,7 @@ describe('Structural directive', () => {
      `,
       { detectChanges: false }
     );
-    const service = spectator.get(TranslocoService) as any;
+    const service = spectator.inject(TranslocoService);
     setlistenToLangChange(service);
     spectator.detectChanges();
     runLoader();
@@ -62,7 +62,7 @@ describe('Structural directive', () => {
     spectator = createHost(`<section *transloco="let t"></section>`, {
       detectChanges: false
     });
-    const service = spectator.get<TranslocoService>(TranslocoService);
+    const service = spectator.inject<TranslocoService>(TranslocoService);
 
     setlistenToLangChange(service);
     spectator.detectChanges();
@@ -76,7 +76,7 @@ describe('Structural directive', () => {
     spectator = createHost(`<div transloco="home"></div>`);
     runLoader();
     expect(spectator.queryHost('[transloco]')).toHaveText('home english');
-    spectator.get(TranslocoService).setActiveLang('es');
+    spectator.inject(TranslocoService).setActiveLang('es');
     spectator.detectChanges();
     runLoader();
     expect(spectator.queryHost('[transloco]')).toHaveText('home english');
@@ -143,7 +143,7 @@ describe('Structural directive', () => {
      `,
         { detectChanges: false }
       );
-      service = spectator.get(TranslocoService) as any;
+      service = spectator.inject(TranslocoService) as any;
       setlistenToLangChange(service);
       spectator.detectChanges();
       runLoader();

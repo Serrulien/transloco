@@ -11,6 +11,7 @@ export interface TranslocoTranspiler {
   onLangChanged?(lang: string): void;
 }
 
+@Injectable()
 export class DefaultTranspiler implements TranslocoTranspiler {
   protected interpolationMatcher: RegExp;
 

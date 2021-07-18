@@ -43,7 +43,8 @@
     "replace-in-file": "^4.1.2",
     "ora": "^3.4.0",
     "flat": "5.0.2",
-    "lodash.kebabcase": "^4.1.1"
+    "lodash.kebabcase": "^4.1.1",
+    "tslib": "^2.0.0"
   },
   "peerDependencies": {
     "@angular/core": ">=6.0.0",

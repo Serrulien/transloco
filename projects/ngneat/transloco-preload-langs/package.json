@@ -19,5 +19,8 @@
     "type": "git",
     "url": "git+https://github.com/ngneat/transloco"
   },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "license": "MIT"
 }
